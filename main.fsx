@@ -487,14 +487,15 @@ let main() =
     let pheromoneColor = Color.FromArgb 0xFF01605E // blue
     let antColor = Color.FromArgb 0xFFC3A6E0 // purple
     let homeColor = Color.FromArgb 0xAA645636 // brown
+    let w = 480
 
     let form =
         new Form(
             Visible   = true,
             BackColor = Color.White,
             Text      = "Ant Colony",
-            Width     = 800,
-            Height    = 800)
+            Width     = w * 2,
+            Height    = w * 2)
 
     // 4x4 grid
     for x in [ 0 .. 1 ] do
@@ -507,8 +508,8 @@ let main() =
                             e.Graphics.InterpolationMode <- Drawing2D.InterpolationMode.NearestNeighbor
                             base.OnPaint e }
 
-            pb.Size <- new Size(400, 400)
-            pb.Location <- new Point( x * 400, y * 400)
+            pb.Size <- new Size(w, w)
+            pb.Location <- new Point( x * w, y * w)
             pb.Image <- bitmap
 
             form.Controls.Add(pb)
